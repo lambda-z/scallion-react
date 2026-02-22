@@ -16,9 +16,10 @@
     "dist"
   ],
   "peerDependencies": {
+    "antd": "^6.3.0",
+    "axios": "^1.13.5",
     "react": ">=18.3.1",
-    "react-dom": ">=18.3.1",
-    "antd": "^6.3.0"
+    "react-dom": ">=18.3.1"
   },
   "scripts": {
     "dev": "vite",
@@ -30,9 +31,8 @@
     "@types/react": "^18.3.1",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^5.1.4",
+    "antd": "^6.3.0",
     "typescript": "^5.9.3",
-    "vite-plugin-dts": "^4.5.4",
-    "antd": "^6.3.0"
+    "vite-plugin-dts": "^4.5.4"
   }
-
 }
