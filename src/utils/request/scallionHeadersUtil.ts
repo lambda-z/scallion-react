@@ -1,7 +1,7 @@
 import {ScallionLocalStorageUtil} from "../storage";
 
 
-class ScallionHeadersUtil {
+export class ScallionHeadersUtil {
 
     static getBearerAuthorization() {
         return "Bearer " + ScallionLocalStorageUtil.get("token")
@@ -22,4 +22,3 @@ class ScallionHeadersUtil {
     }
 }
 
-export default {ScallionHeadersUtil};
