@@ -10,11 +10,11 @@ ___) | (_| (_| | | | | (_) | | | |   |  _ <  __/ (_| | (__| |_
 ## Installation
 
 ```bash
-npm install git@github.com:lambda-z/scallion-react.git#v1.0.0
+npm install git@github.com:lambda-z/scallion-react.git#main
 ```
 
 If this lib has been installed before, you can update it by:
 ```bash
 npm uninstall scallion-react
-npm install git@github.com:lambda-z/scallion-react.git#v1.0.0
+npm install git@github.com:lambda-z/scallion-react.git#main
 ```
