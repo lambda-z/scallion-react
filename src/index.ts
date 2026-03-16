@@ -1,4 +1,5 @@
 import { BackendServiceCheck } from "./components/BackendServiceCheck";
+import { DRFServiceImpl } from "./drf-api/service";
 import {ScallionLocalStorageUtil} from "./utils/storage";
 
 export { Button } from './components/Button';
@@ -10,4 +11,5 @@ export {DRFApi} from './drf-api/DRFApi';
 export {
     ScallionLocalStorageUtil,
     BackendServiceCheck,
+    DRFServiceImpl,
 }
