@@ -51,7 +51,7 @@ export function BackendServiceCheck() {
 
     return (
         <div>
-            BackendServiceCheck: {data?.service_name}
+            BackendServiceCheck: {data?.message}
         </div>
     )
 
