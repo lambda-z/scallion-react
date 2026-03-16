@@ -21,17 +21,25 @@ class BackendServiceImpl extends DRFServiceImpl {
     async checkHealth(){
 
         let ret = {}
+
         this.api.getHealth().then(
             (resp) => {
                 ret = resp?.data;
+                console.log("checkHealth.then: ", ret);
             }
         ).catch(
             (error) => {
                 console.error('BackendService Connect Error: ', error)
                 ret = {service_name: null, status: "error", message: "No Service Connect."}
+                console.log("checkHealth.catch: ", ret);
+            }
+        ).finally(
+            () => {
+                console.log("checkHealth.finally: ", ret);
             }
         )
 
+        console.log("checkHealth.return: ", ret);
         return ret;
     }
 }
