@@ -18,7 +18,7 @@ class BackendServiceMetaApi extends DRFApi {
 class BackendServiceImpl extends DRFServiceImpl {
     api = new BackendServiceMetaApi();
 
-    async checkHealth(){
+    checkHealth(){
 
         let ret = {}
 
@@ -51,7 +51,7 @@ export function BackendServiceCheck() {
     const [data, setData] = useState({service_name: '', status: '', message: ''});
 
     const checkHealth = async () => {
-        const resp = await service.checkHealth();
+        const resp = service.checkHealth();
         setData({message: "", service_name: "", status: "", ...resp})
     }
 
