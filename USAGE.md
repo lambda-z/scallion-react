@@ -64,3 +64,52 @@ class BackendServiceImpl extends DRFServiceImpl {
     }
 }
 ```
+
+## Project Structure
+
+The following function location is referenced by this framework.
+
+- src/api/
+- src/service/
+- src/hook/
+- src/views/
+- src/model(s)/
+- src/component(s)/
+- src/provider/
+
+
+## AI Prompt
+
+When you implement a new `DOMAIN` in your react(next) project, you can use the following prompt text.
+
+```markdown
+- You are a senior next developer.
+- Now you should implement a basic concrete domain react display framework.
+- The DOMAIN var is a giving domain name, you should replace the var in {DOMAIN} I mentioned later.
+- {DOMAIN} is the domain's snack naming, such as `user_info`;
+- {DOMAIN_BIG_CAMEL} is the big camel naming of the domain, for example, `UserInfo`;
+- {DOMAIN_SMALL_CAMEL} is the big camel naming of the domain, for example, `userInfo`;
+- {DOMAINS} is the domain's 复数, for example, user_info -> user_infos, fox -> foxes.
+- The Base URL var is {BASE_URL}, for instance, /api/data/v1/
+
+In `src/api/{DOMAIN_BIG_CAMEL}Api.ts`:
+
+import {DRFApi} from "scallion-react";
+
+export class {DOMAIN_BIG_CAMEL}Api extends DRFApi {
+    URL = '/{BASE_URL}/{DOMAINS}';
+}
+
+In `src/service/{DOMAIN_BIG_CAMEL}Service.ts`:
+
+import { DRFServiceImpl } from "scallion-react";
+import { {DOMAIN_BIG_CAMEL}Api } from "@/api/{DOMAIN_BIG_CAMEL}Api";
+
+export class {DOMAIN_BIG_CAMEL}ServiceImpl extends DRFServiceImpl {
+    api = new {DOMAIN_BIG_CAMEL}Api();
+}
+
+- 严格控制输出：只输出一个json，key为文件相对路径及文件名，value为文件内容。
+
+DOMAIN='flashcard'
+```
