@@ -41,7 +41,7 @@ export function BackendServiceCheck() {
     const [data, setData] = useState({service_name: '', status: '', message: ''});
 
     const checkHealth = async () => {
-        const resp = service.checkHealth();
+        const resp = await service.checkHealth();
         setData({message: "", service_name: "", status: "", ...resp})
     }
 
