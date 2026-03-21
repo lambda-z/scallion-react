@@ -50,9 +50,9 @@ export function BackendServiceCheck() {
     }, []);
 
     return (
-        <div>
+        <>
             BackendServiceCheck: {data?.message}
-        </div>
+        </>
     )
 
 }
