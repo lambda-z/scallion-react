@@ -1,18 +1,21 @@
 
 
-export class ScallionLocalStorageUtil {
-    // set
-    public static set(key: string, value: string) {
-        window.localStorage.setItem(key, value);
-    }
+export interface ScallionStorageAdapter {
+    set(key: string, value: string): Promise<void>;
+    get(key: string): Promise<string | null>;
+    remove(key: string): Promise<void>;
+}
 
-    // get
-    public static get(key: string) {
-        return window.localStorage.getItem(key);
-    }
 
-    // remove
-    public static remove(key: string) {
-        window.localStorage.removeItem(key);
+let storageAdapter: ScallionStorageAdapter | null = null;
+
+export function setScallionStorageAdapter(adapter: ScallionStorageAdapter) {
+    storageAdapter = adapter;
+}
+
+export function getScallionStorageAdapter(): ScallionStorageAdapter {
+    if (!storageAdapter) {
+        throw new Error('Scallion storage adapter is not configured.');
     }
+    return storageAdapter;
 }

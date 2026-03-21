@@ -1,24 +1,27 @@
-import {ScallionLocalStorageUtil} from "../storage";
-
+import { getScallionStorageAdapter } from "../storage";
 
 export class ScallionHeadersUtil {
-
-    static getBearerAuthorization() {
-        return "Bearer " + ScallionLocalStorageUtil.get("token")
+    static async getBearerAuthorization(): Promise<string | undefined> {
+        const storage = getScallionStorageAdapter();
+        const token = await storage.get("token");
+        return token ? `Bearer ${token}` : undefined;
     }
 
-    static getJsonHeader() {
+    static async getJsonHeader(): Promise<Record<string, string>> {
+        const authorization = await ScallionHeadersUtil.getBearerAuthorization();
+
         return {
             "Content-Type": "application/json",
-            Authorization: ScallionHeadersUtil.getBearerAuthorization(),
-        }
+            ...(authorization ? { Authorization: authorization } : {}),
+        };
     }
 
-    static getFileHeader() {
+    static async getFileHeader(): Promise<Record<string, string>> {
+        const authorization = await ScallionHeadersUtil.getBearerAuthorization();
+
         return {
-            'Content-Type': 'multipart/form-data',
-            Authorization: ScallionHeadersUtil.getBearerAuthorization(),
-        }
+            "Content-Type": "multipart/form-data",
+            ...(authorization ? { Authorization: authorization } : {}),
+        };
     }
 }
-
