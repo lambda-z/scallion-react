@@ -42,7 +42,7 @@ export function BackendServiceCheck() {
 
     const checkHealth = async () => {
         const resp = await service.checkHealth();
-        setData({message: "", service_name: "", status: "", ...resp})
+        setData({message: "", service_name: "", status: "", ...resp});
     }
 
     useEffect(() => {
@@ -54,5 +54,4 @@ export function BackendServiceCheck() {
             BackendServiceCheck: {data?.message}
         </>
     )
-
 }
