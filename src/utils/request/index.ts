@@ -1,7 +1,7 @@
 import axios from "axios";
 import {ScallionHeadersUtil} from "./scallionHeadersUtil.ts";
 
-console.log('BACKEND_SERVICE_URL: ', process.env.EXPO_PUBLIC_BACKEND_SERVICE_URL);
+console.log('BACKEND_SERVICE_URL: ', process.env.NEXT_PUBLIC_BACKEND_SERVICE_URL || process.env.EXPO_PUBLIC_BACKEND_SERVICE_URL);
 export const request = axios.create({
     baseURL: process.env.NEXT_PUBLIC_BACKEND_SERVICE_URL || process.env.EXPO_PUBLIC_BACKEND_SERVICE_URL,
     timeout: 5000,
@@ -13,6 +13,8 @@ export const request = axios.create({
 request.interceptors.request.use(
     (config) => {
         config.headers.Authorization = ScallionHeadersUtil.getBearerAuthorization();
+        console.log('scallion-react-request-config: ', config);
+        console.log('scallion-react-request-baseurl: ', process.env.NEXT_PUBLIC_BACKEND_SERVICE_URL || process.env.EXPO_PUBLIC_BACKEND_SERVICE_URL);
         return config;
     },
     (error) => {
