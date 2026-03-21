@@ -12,7 +12,10 @@ export const request = axios.create({
 * */
 request.interceptors.request.use(
     (config) => {
-        config.headers.Authorization = ScallionHeadersUtil.getBearerAuthorization();
+        const token = ScallionHeadersUtil.getBearerAuthorization();
+        if (token) {
+            config.headers.Authorization = token;
+        }
         console.log('scallion-react-request-config: ', config);
         console.log('scallion-react-request-baseurl: ', process.env.NEXT_PUBLIC_BACKEND_SERVICE_URL || process.env.EXPO_PUBLIC_BACKEND_SERVICE_URL);
         return config;
@@ -30,18 +33,7 @@ request.interceptors.response.use(
         return response;
     },
     (error) => {
-        // console.log("ERROR", error)
-        if (error.status == 401) {
-            // const isMobile = window.innerWidth < 768; // 判断当前设备是否为移动设备，这里假设小于768px为移动设备
-            const isMobile = localStorage.getItem("isMobile") === "true";
-            // 跳转到登录页面
-            if (isMobile) {
-                window.location.replace("/mlogin");
-            } else {
-                window.location.replace("/login");
-            }
-            localStorage.removeItem("token");
-        }
+        console.log("scallion-react-request-response-ERROR", error)
         return error.response || error;
     },
 );
