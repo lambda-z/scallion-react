@@ -10,6 +10,49 @@ You can config it in `.env` file.
 NEXT_PUBLIC_BACKEND_SERVICE_URL=http://127.0.0.1:8000
 ```
 
+## Config ScallionStorageAdapter.
+**In ReactNative:**
+
+### Step 1: Install Storage Package & Creating ScallionStorageAdapter Instance
+- Install `expo-secure-store`.
+```bash
+npx expo install expo-secure-store
+```
+
+- Create file in `adapter.tsx`
+
+```tsx
+import * as SecureStore from 'expo-secure-store';
+
+import {
+    ScallionStorageAdapter,
+} from 'scallion-react';
+
+export const rnStorageAdapter: ScallionStorageAdapter = {
+    async set(key: string, value: string) {
+        await SecureStore.setItemAsync(key, value);
+    },
+    async get(key: string) {
+        return await SecureStore.getItemAsync(key);
+    },
+    async remove(key: string) {
+        await SecureStore.deleteItemAsync(key);
+    },
+};
+```
+
+### Step 2: setScallionStorageAdapter
+
+For instance, in expo file router mode.
+`app/_layout.tsx`
+```tsx
+import {setScallionStorageAdapter} from "scallion-react";
+import {rnStorageAdapter} from "@/adapter/rnStorageAdapter";
+
+setScallionStorageAdapter(rnStorageAdapter);
+```
+
+
 This step is depended on the Request config. You can use this component to check whether your backend service  that you
 config above is available.
 ```tsx
