@@ -192,7 +192,7 @@ export class {DOMAIN_BIG_CAMEL}Api extends DRFApi {
 In `src/service/{DOMAIN_BIG_CAMEL}ServiceImpl.ts`:
 
 import { DRFServiceImpl } from "scallion-react";
-import { {DOMAIN_BIG_CAMEL}Api } from "@/api/{DOMAIN_BIG_CAMEL}Api";
+import { {DOMAIN_BIG_CAMEL}Api } from "@/src/api/{DOMAIN_BIG_CAMEL}Api";
 
 export class {DOMAIN_BIG_CAMEL}ServiceImpl extends DRFServiceImpl {
     api = new {DOMAIN_BIG_CAMEL}Api();
@@ -200,14 +200,13 @@ export class {DOMAIN_BIG_CAMEL}ServiceImpl extends DRFServiceImpl {
 
 In `src/service/{DOMAIN_BIG_CAMEL}.ts`:
 
-export type {DOMAIN_BIG_CAMEL} {
+export type {DOMAIN_BIG_CAMEL} = {
     id: number;
 }
 
 In `src/hook/use{DOMAIN_BIG_CAMEL}.tsx`:
-
 import {useState} from "react";
-import { {DOMAIN_BIG_CAMEL}Api } from "@/api/{DOMAIN_BIG_CAMEL}Api";
+import {{DOMAIN_BIG_CAMEL}ServiceImpl} from "@/src/service/AuthServiceImpl";
 
 export function use{DOMAIN_BIG_CAMEL}() {
     const service = new {DOMAIN_BIG_CAMEL}ServiceImpl();
@@ -220,5 +219,5 @@ export function use{DOMAIN_BIG_CAMEL}() {
 - 严格控制输出：只输出一个json，key为文件相对路径及文件名，value为文件内容。
 
 DOMAIN='flashcard'
+BASE_URL='/api/[]'
 ```
-
