@@ -9,7 +9,8 @@ export {DRFApi} from './drf-api/DRFApi';
 
 
 export {
-    setScallionStorageAdapter, BackendServiceCheck,
+    setScallionStorageAdapter,
+    BackendServiceCheck,
     DRFServiceImpl
 };
 export type { ScallionStorageAdapter };

@@ -33,7 +33,7 @@ request.interceptors.response.use(
         return response;
     },
     (error) => {
-        console.log("scallion-react-request-response-ERROR", error)
+        console.log("scallion-react-request-response-ERROR", error?.response)
         return error.response || error;
     },
 );
