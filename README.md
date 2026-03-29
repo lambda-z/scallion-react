@@ -206,7 +206,7 @@ export type {DOMAIN_BIG_CAMEL} = {
 
 In `src/hook/use{DOMAIN_BIG_CAMEL}.tsx`:
 import {useState} from "react";
-import {{DOMAIN_BIG_CAMEL}ServiceImpl} from "@/src/service/AuthServiceImpl";
+import {{DOMAIN_BIG_CAMEL}ServiceImpl} from "@/src/service/{DOMAIN_BIG_CAMEL}ServiceImpl";
 
 export function use{DOMAIN_BIG_CAMEL}() {
     const service = new {DOMAIN_BIG_CAMEL}ServiceImpl();
