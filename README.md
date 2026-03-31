@@ -175,7 +175,8 @@ When you implement a new `DOMAIN` in your react(next) project, you can use the f
 - You are a senior next developer.
 - Now you should implement a basic concrete domain react display framework.
 - The DOMAIN var is a giving domain name, you should replace the var in {DOMAIN} I mentioned later.
-- {DOMAIN} is the domain's snack naming, such as `user_info`;
+- {DOMAIN} is the domain's snack naming, such as `user-info`;
+- {DOMAIN_SNAKE} is the domain's snack naming, such as `user_info`;
 - {DOMAIN_BIG_CAMEL} is the big camel naming of the domain, for example, `UserInfo`;
 - {DOMAIN_SMALL_CAMEL} is the big camel naming of the domain, for example, `userInfo`;
 - {DOMAINS} is the domain's 复数, for example, user_info -> user_infos, fox -> foxes.
@@ -216,8 +217,11 @@ export function use{DOMAIN_BIG_CAMEL}() {
     }
 }
 
+In `src/schema/{DOMAIN_SNAKE}_schema.ts`:
+
+
 - 严格控制输出：只输出一个json，key为文件相对路径及文件名，value为文件内容。
 
 DOMAIN='flashcard'
-BASE_URL='/api/[]'
+BASE_URL='/api/_'
 ```
