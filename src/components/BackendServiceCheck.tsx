@@ -12,7 +12,6 @@ class BackendServiceMetaApi extends DRFApi {
     async getHealth() {
         return await request.get(this.URL, {});
     }
-
 }
 
 class BackendServiceImpl extends DRFServiceImpl {
