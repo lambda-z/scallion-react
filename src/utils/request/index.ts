@@ -4,7 +4,7 @@ import {ScallionHeadersUtil} from "./scallionHeadersUtil.ts";
 console.log('BACKEND_SERVICE_URL: ', process.env.NEXT_PUBLIC_BACKEND_SERVICE_URL || process.env.EXPO_PUBLIC_BACKEND_SERVICE_URL);
 export const request = axios.create({
     baseURL: process.env.NEXT_PUBLIC_BACKEND_SERVICE_URL || process.env.EXPO_PUBLIC_BACKEND_SERVICE_URL,
-    timeout: 5000,
+    timeout: 1000 * 60,
 });
 
 /*
